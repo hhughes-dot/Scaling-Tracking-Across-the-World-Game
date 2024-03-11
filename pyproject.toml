@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tracking-animator"
+version = "0.0.1"
+dependencies = [
+    "pandas",
+    "qgrid",
+    "jupyter",
+    "ipywidgets==7.5.1",
+    "ipykernel",
+    "matplotlib",
+    "notebook==6.5.4",
+    "traitlets==5.9.0",
+    "fastparquet",
+    "jupyter-client==7.4.9",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.MASTER]
+ignore = '.git'
+source-roots = 'src'
+
+[[tool.mypy.overrides]]
+module = ["yaml", "sqlalchemy", "s3fs", "s3path", "mlflow", "scipy.*", "pandas"]
+ignore_missing_imports = true
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
