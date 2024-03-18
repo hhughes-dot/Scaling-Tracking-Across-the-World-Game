@@ -16,6 +16,7 @@ dependencies = [
     "traitlets==5.9.0",
     "fastparquet",
     "jupyter-client==7.4.9",
+	"wget"
 ]
 
 [tool.setuptools]
